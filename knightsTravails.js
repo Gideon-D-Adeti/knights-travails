@@ -21,4 +21,8 @@ function knightMoves(start, end) {
     [-1, 2],
     [-1, -2],
   ];
+
+  // Initialize the queue with the start position and the path taken to reach it
+  const queue = new Queue();
+  queue.enqueue([start, [start]]);
 }
