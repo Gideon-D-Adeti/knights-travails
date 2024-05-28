@@ -67,3 +67,9 @@ function knightMoves(start, end) {
     }
   }
 }
+
+// Example usage
+knightMoves([0, 0], [1, 2]); // [[0, 0], [1, 2]]
+knightMoves([0, 0], [3, 3]); // Possible solutions: [[0, 0], [2, 1], [3, 3]] or [[0, 0], [1, 2], [3, 3]]
+knightMoves([3, 3], [0, 0]); // Possible solutions: [[3, 3], [2, 1], [0, 0]] or [[3, 3], [1, 2], [0, 0]]
+knightMoves([0, 0], [7, 7]); // [[0, 0], ..., [7, 7]] (shortest path)
