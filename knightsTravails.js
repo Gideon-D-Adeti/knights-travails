@@ -25,4 +25,8 @@ function knightMoves(start, end) {
   // Initialize the queue with the start position and the path taken to reach it
   const queue = new Queue();
   queue.enqueue([start, [start]]);
+
+  // Set to track visited positions
+  const visited = new Set();
+  visited.add(start.toString());
 }
