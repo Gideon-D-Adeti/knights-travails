@@ -8,6 +8,9 @@ class Queue {
   dequeue() {
     return this.elements.shift();
   }
+  isEmpty() {
+    return this.elements.length === 0;
+  }
 }
 
 function knightMoves(start, end) {
