@@ -32,4 +32,38 @@ function knightMoves(start, end) {
   // Set to track visited positions
   const visited = new Set();
   visited.add(start.toString());
+
+  // Perform BFS
+  while (!queue.isEmpty()) {
+    const [currentPosition, path] = queue.dequeue();
+
+    // If the current position is the target, return the path
+    if (currentPosition[0] === end[0] && currentPosition[1] === end[1]) {
+      console.log(`You made it in ${path.length - 1} moves! Here's your path:`);
+      path.forEach((pos) => console.log(pos));
+      return path;
+    }
+
+    // Explore all possible knight moves from the current position
+    for (let direction of directions) {
+      const nextPosition = [
+        currentPosition[0] + direction[0],
+        currentPosition[1] + direction[1],
+      ];
+
+      // Check if the next position is within the bounds of the chessboard
+      if (
+        nextPosition[0] >= 0 &&
+        nextPosition[0] < 8 &&
+        nextPosition[1] >= 0 &&
+        nextPosition[1] < 8
+      ) {
+        // If the next position has not been visited, add it to the queue
+        if (!visited.has(nextPosition.toString())) {
+          visited.add(nextPosition.toString());
+          queue.enqueue([nextPosition, [...path, nextPosition]]);
+        }
+      }
+    }
+  }
 }
